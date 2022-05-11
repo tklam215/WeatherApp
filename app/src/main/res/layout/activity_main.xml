@@ -328,13 +328,19 @@
     </RelativeLayout>
 
 
-    <ProgressBar android:id="@+id/loader" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:layout_centerInParent="true"
+    <ProgressBar
+        android:id="@+id/loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:visibility="gone"/>
 
-    <TextView android:id="@+id/errorText" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:layout_centerInParent="true"
-        android:visibility="gone" android:text="Something went wrong"/>
+    <TextView android:id="@+id/errorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:text="Something went wrong"/>
 
 
 </RelativeLayout>
