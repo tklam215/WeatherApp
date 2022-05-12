@@ -15,7 +15,7 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    val CITY: String = "dhaka,bd"
+    val CITY: String = "philadelphia"
     val API: String = "add24a5088aed081dd1adb7368be93d2"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,7 +64,26 @@ class MainActivity : AppCompatActivity() {
                 val weatherDescription = weather.getString("description")
                 val address = jsonObj.getString("name") + ", " + sys.getString("country")
 
-                
+                /* Populating extracted data into our views */
+                findViewById<TextView>(R.id.address).text = address
+                findViewById<TextView>(R.id.updated_at).text =  updatedAtText
+                findViewById<TextView>(R.id.status).text = weatherDescription.capitalize()
+                findViewById<TextView>(R.id.temp).text = temp
+                findViewById<TextView>(R.id.temp_min).text = tempMin
+                findViewById<TextView>(R.id.temp_max).text = tempMax
+                findViewById<TextView>(R.id.sunrise).text = SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunrise*1000))
+                findViewById<TextView>(R.id.sunset).text = SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunset*1000))
+                findViewById<TextView>(R.id.wind).text = windSpeed
+                findViewById<TextView>(R.id.pressure).text = pressure
+                findViewById<TextView>(R.id.humidity).text = humidity
+
+                /* Views populated, Hiding the loader, Showing the main design */
+                findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
+                findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.VISIBLE
+
+            }catch (e: Exception){
+                findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
+                findViewById<TextView>(R.id.errorText).visibility = View.VISIBLE
             }
         }
     }
