@@ -13,12 +13,29 @@
         android:layout_height="match_parent"
         android:visibility="visible">
 
+
         <LinearLayout
+
             android:id="@+id/addressContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter search key" />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/editText1"
+                android:layout_alignRight="@+id/editText1"
+                android:layout_alignBottom="@+id/editText1"
+                android:padding="5dp"></ImageView>
+
 
             <TextView
                 android:id="@+id/address"
@@ -34,7 +51,6 @@
                 android:text="20 April 2012, 20:08 PM"
                 android:textSize="14dp" />
         </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/overviewContainer"
@@ -58,7 +74,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif-thin"
                 android:text="29°C"
-                android:textSize="90dp" />
+                android:textSize="85dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -335,12 +351,13 @@
         android:layout_centerInParent="true"
         android:visibility="gone"/>
 
-    <TextView android:id="@+id/errorText"
+    <TextView
+        android:id="@+id/errorText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:visibility="gone"
-        android:text="Something went wrong"/>
+        android:text="Something went wrong"
+        android:visibility="gone" />
 
 
 </RelativeLayout>
