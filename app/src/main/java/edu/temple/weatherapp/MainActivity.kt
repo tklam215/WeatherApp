@@ -4,9 +4,7 @@ import android.os.AsyncTask
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
-import android.widget.ProgressBar
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
 import org.json.JSONObject
 import java.net.URL
 import java.text.SimpleDateFormat
@@ -15,14 +13,23 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    val CITY: String = "philadelphia"
+    var CITY: String = ""
     val API: String = "add24a5088aed081dd1adb7368be93d2"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        weatherTask().execute()
+        var editTextHello = findViewById<EditText>(R.id.editTextBox)
+        var submitButton = findViewById<Button>(R.id.button)
+
+        submitButton.setOnClickListener {
+            CITY = editTextHello.getText().toString()
+            weatherTask().execute()
+
+        }
+
+
     }
     inner class weatherTask(): AsyncTask<String, Void, String>(){
         override fun onPreExecute() {
